@@ -1,10 +1,12 @@
 <template>
     <main>
-		<router-view />
+		  <router-view />
+      <setting-vue></setting-vue>
     </main>
 </template>
 
 <script setup lang='ts'>
+import SettingVue from "@/components/Setting.vue";
 
 </script>
 

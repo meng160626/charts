@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/charts-community/',     // 设置相对路径
+  base: '/charts/',     // 设置相对路径
   plugins: [vue()],
   resolve: {
     alias: {
