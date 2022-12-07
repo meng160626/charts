@@ -1,5 +1,6 @@
 <template>
-    <svg id="setting" style="cursor: pointer;" width="48" height="48" viewBox="0 0 72 72" @click="onSettingClick">
+    <svg id="setting" style="cursor: pointer;" width="48"
+        height="48" viewBox="0 0 72 72" @click="onSettingClick">
         <g id="color">
             <path fill="#D0CFCE" stroke="none"
                 d="M51.2579,29.8111c0,0-1.8149-0.4504-1.0786-2.0742l4.5037-7.4841l-3.6502-3.417l-0.73-0.6833 l-7.1357,4.6903c-0.9431,0.4213-2.037-0.1166-2.2794-1.1205l-1.887-7.8158h-5h-1l-1.8809,7.7858 c-0.2389,0.9894-1.3101,1.5798-2.2425,1.1716c-0.0148-0.0063-0.0296-0.0131-0.0445-0.0198l-7.1357-4.6904l-0.73,0.6833 l-3.6502,3.417l4.5037,7.4841c0.7364,1.6238-1.0785,2.0743-1.0785,2.0743l-8.4766,2.1074l0.1649,4.9972l0.033,0.9995 l8.3622,1.7291c0.952,0.3641,1.3501,1.4954,0.8358,2.3755l-0.0328,0.0562l-4.5037,7.484l3.6502,3.417l0.73,0.6833l7.1357-4.6902 c0.0149-0.0068,0.03-0.0129,0.0445-0.02c0,0,0.0115-0.0042,0.0332-0.0111c1.1606-0.3768,2.393,0.3463,2.6794,1.5325l1.7947,7.4336 h1h5l1.887-7.8158c0.2424-1.0039,1.3364-1.5417,2.2794-1.1205l7.1357,4.6903l0.73-0.6833l3.6502-3.417l-4.5037-7.4841 l-0.0328-0.0562c-0.5143-0.88-0.1162-2.0112,0.8358-2.3755l8.3622-1.729l0.033-0.9995l0.1649-4.9973L51.2579,29.8111z M36,44.9064 c-5.5228,0-10-4.4772-10-10s4.4772-10,10-10s10,4.4772,10,10S41.5228,44.9064,36,44.9064z" />
@@ -20,10 +21,11 @@
         </g>
     </svg>
 
-    <Teleport to="body">
-        <aside :class="{'tooltip-container': true, 'hidden': !tooltipVisible}">
+    <Teleport to="#app">
+        <aside
+            :class="{ 'tooltip-container': true, 'hidden': !tooltipVisible, 'active': tooltipVisible }">
             <ul>
-                <li class="tooltip-item">
+                <li class="tooltip-item" @click="onThemeBtnClick">
                     <svg class="icon" viewBox="0 0 1024 1024" width="54" height="54">
                         <path
                             d="M747.1616 904.8576l-231.3216-137.5744-238.08 139.1104c-52.3776 30.6176-118.2208-7.168-118.2208-67.84V276.9408c0-86.0672 69.7856-155.8528 155.8528-155.8528h394.5984c86.0672 0 155.8528 69.7856 155.8528 155.8528v560.384c0.0512 60.928-66.304 98.6624-118.6816 67.5328z"
@@ -76,68 +78,143 @@
                             d="M878.2336 592.4352h-150.7328c-14.1312 0-25.6-11.4688-25.6-25.6s11.4688-25.6 25.6-25.6h150.7328c14.1312 0 25.6 11.4688 25.6 25.6s-11.4688 25.6-25.6 25.6zM878.2336 720.8448h-150.7328c-14.1312 0-25.6-11.4688-25.6-25.6s11.4688-25.6 25.6-25.6h150.7328c14.1312 0 25.6 11.4688 25.6 25.6s-11.4688 25.6-25.6 25.6zM878.2336 846.2336h-150.7328c-14.1312 0-25.6-11.4688-25.6-25.6s11.4688-25.6 25.6-25.6h150.7328c14.1312 0 25.6 11.4688 25.6 25.6s-11.4688 25.6-25.6 25.6z"
                             fill="#434A54"></path>
                     </svg>
-                    <span>主题</span>
+                    <span>筛选</span>
+                </li>
+                <li class="tooltip-item">
+                    <svg class="icon" viewBox="0 0 1024 1024" width="54" height="54">
+                        <path
+                            d="M115.4048 821.4016V236.2368c0-9.5744 4.7616-18.432 12.7488-23.7056C174.08 182.3744 337.408 95.0272 508.672 241.9712c126.6688-155.9552 327.7312-65.1776 383.1296-34.2016a28.3648 28.3648 0 0 1 14.592 24.7808v589.3632c0 11.776-12.9024 18.8928-22.9888 12.6976-54.528-33.5872-200.3456-97.4848-373.0432 37.0688-111.1552-130.6624-296.8576-88.32-371.5584-37.8368-9.9328 6.7584-23.3984-0.4096-23.3984-12.4416z"
+                            fill="#C0DAF9"></path>
+                        <path
+                            d="M219.5456 170.9568c-42.4448 12.0832-74.7008 30.5664-91.392 41.5232a28.25728 28.25728 0 0 0-12.7488 23.7056v585.1648c0 12.0832 13.4656 19.2 23.4496 12.4416 20.0704-13.568 48.1792-26.5216 80.6912-35.6864V170.9568zM593.4592 174.7968c-30.1056 13.8752-58.9824 35.3792-84.736 67.1744-28.8768-24.7808-57.5488-42.8544-85.4528-55.7056v620.4416c31.488 13.7728 61.3376 34.6624 87.0912 64.9728 28.5184-22.2208 56.32-39.0144 83.0464-51.4048V174.7968zM892.928 207.7696c-16.1792-9.728-45.7216-25.3952-82.3296-37.4272v629.7088a277.23776 277.23776 0 0 1 74.496 34.56c9.3184 6.1952 21.3504-0.9216 21.3504-12.6976V232.5504c0-10.2912-5.1712-19.7632-13.5168-24.7808z"
+                            fill="#9EBFEF"></path>
+                        <path
+                            d="M198.0928 191.0784v607.5904l64.8192-12.8V158.6688zM584.0384 191.0784v607.5904l64.8704-12.8V158.6688z"
+                            fill="#E9F5FF"></path>
+                        <path
+                            d="M904.3456 185.3952c-42.2912-23.6032-253.5424-129.4336-398.5408 21.1968-177.408-135.8848-343.6544-47.0016-391.68-15.5136a53.7856 53.7856 0 0 0-24.32 45.1072v585.1648a40.5504 40.5504 0 0 0 21.5552 35.8912 40.56576 40.56576 0 0 0 41.8304-2.2528c68.5056-46.2848 237.8752-84.1216 337.7152 33.2288a25.5488 25.5488 0 0 0 35.2256 3.584c159.9488-124.5696 293.7856-66.304 343.9104-35.4304a40.66304 40.66304 0 1 0 62.0032-34.56V232.5504c0-19.5584-10.5984-37.5808-27.6992-47.1552zM313.5488 759.1936h-2.7648c-69.4272 0.5632-130.304 21.248-169.728 43.3152V236.2368c0-0.9728 0.4608-1.792 1.1776-2.304 41.472-27.2384 187.0336-104.8576 341.4528 20.48l1.536 558.6944c-58.0608-43.264-122.624-53.9136-171.6736-53.9136z m567.296 44.3904c-62.8736-33.8432-191.9488-76.9024-344.3712 18.6368l-1.536-571.5968c119.5008-135.7824 307.456-41.216 344.4736-20.5312 0.9216 0.512 1.4336 1.4336 1.4336 2.4576v571.0336z"
+                            fill="#434A54"></path>
+                    </svg>
+                    <span>模式</span>
                 </li>
             </ul>
         </aside>
     </Teleport>
+
+    <theme-setting ref="ThemeSettingRef"></theme-setting>
 </template>
 
 <script setup lang='ts'>
 import { useThemeStore } from '@/stores/theme';
-import { ref } from 'vue';
+import { ref, unref } from 'vue';
+import ThemeSetting from '@/components/set/ThemeSetting.vue';
+
+const ThemeSettingRef = ref();
 
 // 主题控制
-const _themeList = ['blue', 'pink'];
 const themeStore = useThemeStore();
-const onThemeChange = function (theme: string) {
-    themeStore.changeTheme(theme);
-}
+
 // 工具栏可视化
 const tooltipVisible = ref(false);
-const onSettingClick = function() {
+const onSettingClick = function () {
     tooltipVisible.value = !tooltipVisible.value;
+}
+
+// 打开主题弹框
+const onThemeBtnClick = function() {
+    unref(ThemeSettingRef).open();
 }
 </script>
 
 <style scoped lang="scss">
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 #setting {
     position: fixed;
     right: 30px;
     top: 40px;
+    animation: rotate 3s infinite linear paused;
+    z-index: 9;
+
+    &:hover {
+        animation-play-state: running;
+    }
 }
 
 @keyframes shake {
     0% {
         transform: rotate(12deg);
     }
+
     20% {
         transform: rotate(-12deg);
     }
+
     40% {
         transform: rotate(8deg);
     }
+
     60% {
         transform: rotate(-6deg);
     }
+
     80% {
         transform: rotate(4deg);
     }
+
     100% {
         transform: rotate(0);
     }
 }
+
+@keyframes pop {
+    0% {
+        right: -105px;
+    }
+
+    40% {
+        right: -5px;
+    }
+
+    100% {
+        right: -20px;
+    }
+}
+
+@keyframes hidden {
+    0% {
+        right: -20px;
+    }
+
+    40% {
+        right: -5px;
+    }
+
+    100% {
+        right: -105px;
+    }
+}
+
 .tooltip-container {
     position: fixed;
-    right: 0;
     top: 50%;
     transform: translateY(-50%);
     width: 80px;
     border-radius: 15px 0 0 15px;
-    box-shadow: 0 0 4px 0 #144a74;
+    box-shadow: 0 0 4px 0 var(--settingPopShadow);
     backdrop-filter: blur(5px);
     transition: right .4s ease-in-out;
-    background-color: rgba($color: #93eee9, $alpha: 0.1);
+    background-color: rgba($color: #93eee9, $alpha: var(--settingPopOpacity));
+    padding-right: 20px;
+    z-index: 9;
 
     ul {
         padding: 20px 10px 20px 20px;
@@ -148,18 +225,26 @@ const onSettingClick = function() {
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-bottom: 1px solid #144a74;
+            border-bottom: 1px solid var(--borderColor);
             padding: 10px 0;
             cursor: pointer;
             transform-origin: 50% 100%;
+            font-size: 20px;
+            color: #333;
+            font-family: var(--fontFamily);
 
             &:hover {
                 animation: shake 1 .6s;
             }
         }
     }
+
     &.hidden {
-        right: -85px;
+        animation: hidden .5s 1 forwards ease-in-out;
+    }
+
+    &.active {
+        animation: pop .8s 1 forwards ease-in-out;
     }
 }
 </style>

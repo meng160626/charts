@@ -1,10 +1,11 @@
 <template>
-    <div id="percentGauge"></div>
+        <div id="percentGauge" ref="chartRef"></div>
 </template>
 
 <script setup lang='ts'>
 import * as echarts from "echarts";
-import { onMounted } from "vue";
+import { onMounted, onUnmounted, ref, unref } from "vue";
+
 /**
  * 获取百分比仪表盘配置
  * @param {*} data 数据
@@ -90,10 +91,16 @@ function getPercentGaugeOption(data: any, outerColor: string, innerColor: string
     };
 }
 
+const chartRef = ref();
+let chart: echarts.ECharts;
 onMounted(() => {
-    const chartDom = document.getElementById('percentGauge');
-    const chart = echarts.init(chartDom as HTMLElement);
+    // @ts-ignore
+    chart = echarts.init(unref(chartRef));
     chart.setOption(getPercentGaugeOption(45, '#2cf0ff', 'rgb(44, 240, 255, .4)'));
+});
+
+onUnmounted(() => {
+    chart.dispose();
 });
 </script>
 

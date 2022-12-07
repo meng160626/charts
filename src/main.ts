@@ -9,7 +9,9 @@ import { gsap } from 'gsap'// 导入gsap到vue项目
 import MotionPath from 'gsap/MotionPathPlugin'// 导入gsap插件ScrollToPlugin
 
 // 引入全局样式
-import './assets/global.scss'
+import './assets/global.scss';
+import './themes/dew.scss';
+import './themes/mew.scss';
 
 const app = createApp(App)
 

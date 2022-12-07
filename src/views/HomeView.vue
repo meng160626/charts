@@ -1,5 +1,5 @@
 <template>
-    <main :class="{ [themeStore.theme]: true }">
+    <main>
         <header style="height: 120px;padding-left: 30px;">
             <h1 class="title">
                 <span>JFG Charts</span>
@@ -32,9 +32,9 @@
             </h1>
         </header>
         <section>
-            <div class="introductory">一个菜鸡的图表库</div>
-            <span :class="{ 'rainbow-btn': true, [themeStore.theme]: true }" @click="onIndexBtnClick">所有示例</span>
-            <span :class="{ 'rainbow-btn': true, [themeStore.theme]: true }" @click="onClick">
+            <!-- <div class="introductory">一个菜鸡的图表库</div> -->
+            <span class="rainbow-btn" @click="onIndexBtnClick">所有示例</span>
+            <span class="rainbow-btn" @click="onClick">
                 在线编辑
                 <!-- bird svg -->
                 <svg width="60px" height="60px" id="bird" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
@@ -60,14 +60,15 @@
 
             <!-- svg 盒子 -->
             <div class="svg-container">
-                <!-- satellite-path svg -->
-                <svg class="svg-path" width="500px" height="500px" viewBox="0 0 100 100">
-                    <path d="M10,50 a 40, 40 0 1,0 80,0 a 40, 40 0 1,0 -80,0" id="satellite-path" fill="transparent"
-                        :stroke="themeStore.theme === 'blue' ? '#4af' : '#ef929b'" stroke-dasharray="20"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
+                <!-- rocket-path svg -->
+                <svg class="svg-path outer-path" width="500px" height="500px" viewBox="0 0 100 100">
+                    <path d="M10,50 a 40, 40 0 1,0 80,0 a 40, 40 0 1,0 -80,0" id="rocket-path" fill="transparent"
+                        stroke-dasharray="20"
+                        stroke-linecap="round" stroke-linejoin="round"
+                        class="colored"></path>
                 </svg>
-                <!-- satellite svg -->
-                <div class="svg-icon" id="satellite">
+                <!-- rocket svg -->
+                <div class="svg-icon" id="rocket">
                     <svg viewBox="0 0 1024 1024" style="transform: rotate(90deg)">
                         <path
                             d="M688 328.48V624a64 64 0 0 1-48 61.76 57.44 57.44 0 0 1-13.92 2.08H560V560a48 48 0 0 0-96 0v128h-66.08a57.44 57.44 0 0 1-13.92-2.08A64 64 0 0 1 336 624V328.48a338.08 338.08 0 0 1 61.12-193.76 333.92 333.92 0 0 1 84.48-83.84A311.04 311.04 0 0 1 512 32a338.56 338.56 0 0 1 114.88 102.72c4.8 6.88 9.44 14.08 13.76 21.44A337.44 337.44 0 0 1 688 328.48z"
@@ -253,11 +254,12 @@
                         </path>
                     </g>
                 </svg>
-                <!-- line-path svg -->
+                <!-- earth-path svg -->
                 <svg class="svg-path" width="500px" height="500px" viewBox="0 0 100 100">
                     <path d="M75,50 a 25, 25 1 0,1 -50,0 a 25, 25 1 0,1 50,0" id="earth-path" fill="transparent"
-                        :stroke="themeStore.theme === 'blue' ? '#1579d8' : '#eb3e4c'" stroke-linecap="round"
-                        stroke-linejoin="round"></path>
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke="var(--indexInerStroke)"></path>
                 </svg>
                 <!-- earth svg -->
                 <svg id="earth" class="svg-icon" viewBox="0 0 1024 1024">
@@ -311,22 +313,18 @@
             <svg width="100%" height="534px" id="svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg"
                 class="transition duration-300 ease-in-out delay-150">
                 <defs>
-                    <linearGradient id="gradient-blue" x1="0%" y1="50%" x2="100%" y2="50%">
-                        <stop offset="5%" stop-color="#002bdc"></stop>
-                        <stop offset="95%" stop-color="#32ded4"></stop>
-                    </linearGradient>
-                    <linearGradient id="gradient-pink" x1="0%" y1="50%" x2="100%" y2="50%">
-                        <stop offset="5%" stop-color="#ff78bc"></stop>
-                        <stop offset="95%" stop-color="#ff0080"></stop>
+                    <linearGradient id="wave" x1="0%" y1="50%" x2="100%" y2="50%">
+                        <stop offset="5%" stop-color="var(--waveColoeDeep)"></stop>
+                        <stop offset="95%" stop-color="var(--waveColoeLight)"></stop>
                     </linearGradient>
                 </defs>
                 <path
                     d="M 0,400 C 0,400 0,133 0,133 C 124.33492822966508,144.57894736842104 248.66985645933016,156.1578947368421 335,168 C 421.33014354066984,179.8421052631579 469.6555023923445,191.94736842105263 548,182 C 626.3444976076555,172.05263157894737 734.7081339712918,140.05263157894737 830,124 C 925.2918660287082,107.94736842105263 1007.511961722488,107.8421052631579 1107,112 C 1206.488038277512,116.1578947368421 1323.244019138756,124.57894736842104 1440,133 C 1440,133 1440,400 1440,400 Z"
-                    stroke="none" stroke-width="0" :fill="`url(#gradient-${themeStore.theme})`" fill-opacity="0.53"
+                    stroke="none" stroke-width="0" :fill="`url(#wave)`" fill-opacity="0.53"
                     class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
                 <path
                     d="M 0,400 C 0,400 0,266 0,266 C 72.22009569377991,284.2200956937799 144.44019138755982,302.4401913875598 254,312 C 363.5598086124402,321.5598086124402 510.4593301435407,322.4593301435407 602,312 C 693.5406698564593,301.5406698564593 729.7224880382776,279.7224880382775 827,280 C 924.2775119617224,280.2775119617225 1082.6507177033493,302.6507177033493 1195,304 C 1307.3492822966507,305.3492822966507 1373.6746411483255,285.67464114832535 1440,266 C 1440,266 1440,400 1440,400 Z"
-                    stroke="none" stroke-width="0" :fill="`url(#gradient-${themeStore.theme})`" fill-opacity="1"
+                    stroke="none" stroke-width="0" :fill="`url(#wave)`" fill-opacity="1"
                     class="transition-all duration-300 ease-in-out delay-150 path-1"></path>
             </svg>
         </footer>
@@ -335,24 +333,23 @@
 
 <script setup lang='ts'>
 import router from '@/router';
-import { useThemeStore } from '@/stores/theme';
 import { ElMessage } from 'element-plus';
 import { gsap, Linear } from 'gsap';
 import { onMounted } from 'vue';
 
 onMounted(() => {
-    gsap.to("#satellite", {
+    gsap.to("#rocket", {
         duration: 6,
         repeat: -1,
         ease: Linear.easeNone,
         motionPath: {
-            path: "#satellite-path", // 沿着轨迹运动
-            align: "#satellite-path",
+            path: "#rocket-path", // 沿着轨迹运动
+            align: "#rocket-path",
             autoRotate: true,
             alignOrigin: [0.5, 0.5]
         }
     });
-    gsap.to("#satellite-path", {
+    gsap.to("#rocket-path", {
         duration: 8,
         repeat: -1,
         ease: "back.out(1.7)",
@@ -391,9 +388,6 @@ const onClick = function () {
     });
 };
 
-// 主题控制
-const themeStore = useThemeStore();
-
 // 跳转到主页
 const onIndexBtnClick = function () {
     router.push('/index');
@@ -416,6 +410,7 @@ header {
         padding-right: 50px;
         margin: 0;
         height: 100%;
+        font-family: var(--fontFamily);
 
         div {
             display: flex;
@@ -428,14 +423,6 @@ main {
     width: 100%;
     height: 100%;
     position: relative;
-
-    &.blue {
-        --shadow: #1579d8;
-    }
-
-    &.pink {
-        --shadow: #a61b29;
-    }
 }
 
 /* 打印效果 */
@@ -530,17 +517,14 @@ main {
 @keyframes logo {
     0% {
         transform: none;
-        filter: blur(3px);
     }
 
     50% {
         transform: scale(1.2);
-        filter: none;
     }
 
     100% {
         transform: none;
-        filter: blur(3px);
     }
 }
 
@@ -565,20 +549,9 @@ section {
         left: 20.5%;
         transform: translate(-50%, -50%);
         cursor: pointer;
-
-        &.blue {
-            background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-            background-size: 400%;
-        }
-
-        &.pink {
-            background: linear-gradient(90deg, #f441a5, #ffeb3b, #03a9f4, #f441a5);
-            background-size: 400%;
-        }
-
-        &:hover {
-            animation: bg-linear 8s linear infinite;
-        }
+        background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+        background-size: 400%;
+        animation: bg-linear 8s linear infinite;
 
         &+.rainbow-btn {
             margin-left: 18px;
@@ -633,6 +606,11 @@ section {
             left: 0;
             top: 0;
 
+            &.outer-path {
+                .colored {
+                    stroke: var(--indexOuterStroke);
+                }
+            }
             #earth-path {
                 animation: path-length 5s ease-in-out infinite;
             }

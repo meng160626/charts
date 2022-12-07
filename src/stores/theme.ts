@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 export const useThemeStore = defineStore({
 	id: 'main',
 	state: () => ({
-		theme: 'blue',
+		theme: 'dew'
 	}),
 	getters: {
 		getTheme: state => state.theme
