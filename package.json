@@ -9,7 +9,10 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "echarts": "^5.4.0",
+    "echarts-gl": "^2.0.9",
+    "echarts-liquidfill": "^3.1.0",
     "element-plus": "^2.2.25",
     "gsap": "^3.11.3",
     "pinia": "^2.0.21",

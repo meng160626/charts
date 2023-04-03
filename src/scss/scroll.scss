@@ -1,0 +1,45 @@
+// 滚动条
+.has-scroll {
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+    &::-webkit-scrollbar {
+        background: transparent;
+        height: 5px;
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #dedfe1;
+        border-radius: 4px;
+
+        &:hover {
+            background: #c8c9cc;
+        }
+    }
+}
+
+// 特殊处理将所有的代码片段添加滚动条样式
+code {
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+    &::-webkit-scrollbar {
+        background: transparent;
+        height: 5px;
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #dedfe1;
+        border-radius: 4px;
+
+        &:hover {
+            background: #c8c9cc;
+        }
+    }
+}

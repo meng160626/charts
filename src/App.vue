@@ -5,27 +5,39 @@
                 <component :is="Component" />
             </transition>
         </router-view>
-        <setting-vue></setting-vue>
     </main>
 </template>
 
 <script setup lang='ts'>
-import SettingVue from "@/components/set/Setting.vue";
-import { useThemeStore } from '@/stores/theme';
-import { onMounted, onUnmounted } from "vue";
-
-// 主题控制
-const themeStore = useThemeStore();
-onMounted(() => {
-    // 初始化页面主题
-    document.querySelector('#app')?.classList.add(themeStore.theme);
-});
 </script>
 
 <style lang="scss">
+@import './scss/btn.scss';
+@import './scss/custom-editor.scss';
+@import './scss/scroll.scss';
 @font-face {
     font-family: 'PangMenZhengDao';
     src: url('assets/fonts/PangMenZhengDao.ttf');
+}
+
+@font-face {
+    font-family: 'HuXiaoBo-NanShen';
+    src: url('assets/fonts/HuXiaoBo-NanShen.otf');
+}
+
+@font-face {
+    font-family: 'AliHYAiHei';
+    src: url('assets/fonts/AliHYAiHei.ttf');
+}
+
+@font-face {
+    font-family: 'YouSheBiaoTiHei';
+    src: url('assets/fonts/YouSheBiaoTiHei.ttf');
+}
+
+@font-face {
+    font-family: 'ZhenyanGB';
+    src: url('assets/fonts/ZhenyanGB.ttf');
 }
 main {
 	height: 100%;
@@ -38,5 +50,25 @@ main {
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+}
+.scroll-y {
+    height: 100%;
+    overflow-y: scroll;
+}
+.module {
+    .title {
+        font-size: 30px;
+        font-family: var(--fontFamily);
+        display: flex;
+        gap: .6em;
+
+        &::before {
+            display: inline-block;
+            width: 8px;
+            height: 30px;
+            content: '';
+            background: #2260ff;
+        }
+    }
 }
 </style>

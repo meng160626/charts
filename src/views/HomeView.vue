@@ -32,7 +32,7 @@
             </h1>
         </header>
         <section>
-            <!-- <div class="introductory">一个菜鸡的图表库</div> -->
+            <div class="introductory">不积跬步无以至千里</div>
             <span class="rainbow-btn" @click="onIndexBtnClick">所有示例</span>
             <span class="rainbow-btn" @click="onClick">
                 在线编辑
@@ -259,7 +259,7 @@
                     <path d="M75,50 a 25, 25 1 0,1 -50,0 a 25, 25 1 0,1 50,0" id="earth-path" fill="transparent"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        stroke="var(--indexInerStroke)"></path>
+                        stroke="#1579d8"></path>
                 </svg>
                 <!-- earth svg -->
                 <svg id="earth" class="svg-icon" viewBox="0 0 1024 1024">
@@ -314,8 +314,8 @@
                 class="transition duration-300 ease-in-out delay-150">
                 <defs>
                     <linearGradient id="wave" x1="0%" y1="50%" x2="100%" y2="50%">
-                        <stop offset="5%" stop-color="var(--waveColoeDeep)"></stop>
-                        <stop offset="95%" stop-color="var(--waveColoeLight)"></stop>
+                        <stop offset="5%" stop-color="#002bdc"></stop>
+                        <stop offset="95%" stop-color="#32ded4"></stop>
                     </linearGradient>
                 </defs>
                 <path
@@ -432,7 +432,7 @@ main {
     }
 
     to {
-        width: 8em;
+        width: 9em;
     }
 }
 
@@ -567,10 +567,10 @@ section {
     .introductory {
         color: #333;
         font-size: 2em;
-        width: 8em;
+        width: 9em;
         height: 1.5em;
         border-right: 1px solid transparent;
-        animation: typing 2s steps(16, end), blink-caret .75s step-end infinite;
+        animation: typing 2s steps(18, end), blink-caret .75s step-end infinite;
         font-family: Consolas, Monaco;
         word-break: break-all;
         overflow: hidden;
@@ -608,7 +608,7 @@ section {
 
             &.outer-path {
                 .colored {
-                    stroke: var(--indexOuterStroke);
+                    stroke: #4af;
                 }
             }
             #earth-path {

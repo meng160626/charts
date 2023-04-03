@@ -1,5 +1,5 @@
 <template>
-        <div id="percentGauge" ref="chartRef"></div>
+    <div id="percentGauge" ref="chartRef"></div>
 </template>
 
 <script setup lang='ts'>

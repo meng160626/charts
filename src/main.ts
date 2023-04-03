@@ -10,8 +10,6 @@ import MotionPath from 'gsap/MotionPathPlugin'// 导入gsap插件ScrollToPlugin
 
 // 引入全局样式
 import './assets/global.scss';
-import './themes/dew.scss';
-import './themes/mew.scss';
 
 const app = createApp(App)
 
